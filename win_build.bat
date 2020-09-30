@@ -1,5 +1,5 @@
 @ECHO off
-SET MATLAB_BINARY=c:\work\MATLAB_R2011a\bin
+SET MATLAB_BINARY=c:\work\MATLAB\R2016b\bin
 REM Latest Boost dependencies at https://projects.g-node.org/nix/
 SET NIX_DEP=c:\work\nix-dep
 REM clone nix source from https://github.com/G-Node/nix
@@ -94,7 +94,7 @@ IF %PROCESSOR_ARCHITECTURE% == x86 ( cmake .. -DBUILD_STATIC=ON -G "Visual Studi
 ECHO --------------------------------------------------------------------------
 ECHO Building nix via %NIX_ROOT%\build\nix.sln ...
 ECHO --------------------------------------------------------------------------
-cmake --build . --config %BUILD_TYPE% --target nix
+cmake --build . --config %BUILD_TYPE% --target nixio
 
 IF %ERRORLEVEL% == 1 (EXIT /b)
 
@@ -108,7 +108,7 @@ IF %ERRORLEVEL% == 1 (EXIT /b)
 ECHO --------------------------------------------------------------------------
 ECHO Building nix-tool ...
 ECHO --------------------------------------------------------------------------
-cmake --build . --config %BUILD_TYPE% --target nix-tool
+cmake --build . --config %BUILD_TYPE% --target nixio-tool
 
 IF %ERRORLEVEL% == 1 (EXIT /b)
 
